@@ -1,0 +1,60 @@
+{% extends 'Home/base.html' %}
+{% block title%}
+<h3>Our Anime List</h3>
+{% endblock title%}
+{% block content %}
+{% for item in kitsuanimelist %}
+<div class="content-section">
+  <div class="media">
+    <img class="account-img" src="{{ item.images }}">
+    <div class="media-body">
+      <h2 class="account-heading">{{item.anime}}</h2>
+       <button class="btn btn-light synopsis-content" data-toggle="collapse" data-target="#demo{{ forloop.counter0 }} "><i class="fas fa-align-justify"></i></button>
+       <br><br>
+        <div id="demo{{ forloop.counter0 }} " class="collapse">
+        {{ item.synopsis}}
+        </div>
+    </div>
+  </div>
+  <!-- FORM HERE -->
+</div>
+{% endfor %}
+{% if kitsuanimelist.has_other_pages %}
+
+      {% if kitsuanimelist.has_previous %}
+        <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+      {% endif %}
+
+      {% for num in kitsuanimelist.paginator.page_range %}
+        {% if kitsuanimelist.number == num %}
+          <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > kitsuanimelist.number|add:'-3' and num < kitsuanimelist.number|add:'3' %}
+          <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if kitsuanimelist.has_next %}
+        <a class="btn btn-outline-info mb-4" href="?page={{ kitsuanimelist.next_page_number }}">Next</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ kitsuanimelist.paginator.num_pages }}">Last</a>
+      {% endif %}
+ {% endif %}
+{% endblock content %}
+{% block sidecontent %}
+<div class="content-section">
+    <form id="searchform" action="{% url 'results' %}" method="get" accept-charset="utf-8">
+      <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Search" >
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                </div>
+    </form>
+  </div>
+ <div class="border-top pt-3">
+            <small class="text-muted">
+                Want to Recommend an Anime? <a class="ml-2" href="{% url 'contact' %}">Click Here</a>
+            </small>
+    </div>
+{% endblock sidecontent %}
+

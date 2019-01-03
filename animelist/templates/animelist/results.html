@@ -1,0 +1,47 @@
+{% extends 'Home/base.html' %}
+{% block title%}
+<h3>Results</h3>
+{% endblock title%}
+{% block content %}
+{% if results %}
+{% for item in results %}
+<div class="content-section">
+  <div class="media">
+    <img class="account-img" src="{{ item.images }}">
+    <div class="media-body">
+      <h2 class="account-heading">{{item.anime}}</h2>
+       <button class="btn btn-primary synopsis-content" data-toggle="collapse" data-target="#demo{{ forloop.counter0 }} ">Summary</button>
+       <br><br>
+        <div id="demo{{ forloop.counter0 }} " class="collapse">
+        {{ item.synopsis}}
+        </div>
+    </div>
+  </div>
+  <!-- FORM HERE -->
+</div>
+{% endfor %}
+{% else %}
+<div class="content-section">
+    <img src="https://image.myanimelist.net/ui/THP3d05SFhdRvLOKLs2gqUFz0THCvIe10gufubJGDV2XdWQOGjgCmk-Xv-oy3g6MzR27ERbvOPZ3xdY11NEFEQnbJJVAQKNJpf6r8Y6aeGDXN52AF-2BcorNZu3o7KFd36Dge2ZBrlONmkxWQSGYCw">
+    <br>
+    <h4 style="text-align: center;"><a href="{% url 'contact' %}">We haven't watched that yet!!!</a></h4>
+</div>
+{% endif %}
+{% endblock content %}
+{% block sidecontent %}
+<div class="content-section">
+    <form id="searchform" action="{% url 'results' %}" method="get" accept-charset="utf-8">
+      <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Search" >
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                </div>
+    </form>
+  </div>
+ <div class="border-top pt-3">
+            <small class="text-muted">
+                Want to Recommend an Anime? <a class="ml-2" href="{% url 'contact' %}">Click Here</a>
+            </small>
+    </div>
+{% endblock sidecontent %}

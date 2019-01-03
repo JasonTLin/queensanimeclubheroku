@@ -1,0 +1,51 @@
+{% extends 'Home/base.html' %}
+{% block title%}
+<h3>Our Posts</h3>
+{% endblock title%}
+{% block content %}
+    {% for post in posts %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2"> {{post.author}} </a>
+                <small class="text-muted">{{post.date_posted|date:"F d, Y"}}</small>
+            </div>
+            <h2><a class="article-title" href="{% url 'post-detail' post.id %}"> {{post.title}}</a> </h2>
+            <p class="article-content"> {{post.content}} </p>
+         </div>
+    </article>
+    {% endfor %}
+
+{% if is_paginated %}
+
+      {% if page_obj.has_previous %}
+        <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+          <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+          <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+      {% endif %}
+
+{% endif %}
+
+{% endblock content %}
+{% block sidecontent %}
+<div class="content-section">
+<img class="rounded-circle account-img" src="https://scontent.fybz2-1.fna.fbcdn.net/v/t1.0-9/40998513_1057707094398722_7784290476361777152_n.png?_nc_cat=109&_nc_ht=scontent.fybz2-1.fna&oh=055261b734edc19f29f4daba849e1a80&oe=5CD69915" style="display:block; margin:auto">
+<br>
+<div class="profile-text">
+<p>Hey there! We're the Queen's Anime Club located in Kingston, Ontario. We watch anime bi-weekly (every two weeks) on Fridays so make sure to visit us in
+    <a href="https://www.google.com/maps/place/Dupuis+Hall/@44.2285683,-76.4949496,17z/data=!3m1!4b1!4m5!3m4!1s0x4cd2ab03ef4e05b1:0x74cd479154780d16!8m2!3d44.2285683!4d-76.4927556">Dupuis 215!</a></p>
+</div>
+</div>
+{% endblock sidecontent %}

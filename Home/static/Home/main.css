@@ -1,0 +1,113 @@
+body {
+  background: #fafafa;
+  color: #333333;
+}
+
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+
+.account-heading {
+  font-size: 2rem;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.account-img {
+  display: inline-block;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.synopsis-content {
+    float: right;
+
+}
+
+.calendar-center {
+    position: relative;
+    left: 50%;
+    transform: translateX(-38%);
+}
+
+.calendar-title {
+    text-align: center;
+    border-bottom: 1px solid #e3e3e3
+}
+
+
+.profile-text {
+  text-align: justify;
+  border-top: 1px solid #e3e3e3
+}
+
+img { width: 100%; height: 100%; }
+
+.sponsors {
+  width:240px;
+  height:auto;
+}
+
+.descriptionsline {
+  border-bottom: 1px solid #e3e3e3
+}
+
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.stylish-input-group .form-control{
+  border:0;
+  box-shadow:0 0 0;
+  border-color:#ccc;
+}

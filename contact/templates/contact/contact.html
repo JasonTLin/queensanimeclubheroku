@@ -1,0 +1,38 @@
+{% extends 'Home/base.html' %}
+{% load crispy_forms_tags %}
+{% block title%}
+<h3>Our Contact Page</h3>
+{% endblock title%}
+{% block content %}
+    <div class= content-section>
+        <form method = "POST">
+            {% csrf_token %}
+            <fieldset class= "form-group">
+                <legend class="border-bottom mb-4">
+                    Message Us
+                </legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class= "btn btn-outline info" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+{% block sidecontent %}
+<div class="content-section">
+<div class="row">
+<a class="btn btn-default btn-sm btn-block fb-button" title="Visit our Facebook!" href="https://www.facebook.com/queensanimeclub">
+    <i class="fab fa-facebook-square fa-5x pull-left" style="color:#3b5998"></i>
+    <h3 class="social-links" style="color:#3b5998">Facebook</h3>
+</a>
+</div>
+<br>
+<div class="row">
+<a class="btn btn-default btn-sm btn-block discord-button" title="Join us on Discord!" href="https://discord.gg/zcs7vCG">
+    <i class="fab fa-discord fa-5x pull-left" style="color: #7289DA"></i>
+    <h3 class="social-links" style="color: #7289DA">Discord</h3>
+</a>
+</div>
+</div>
+{% endblock sidecontent %}
