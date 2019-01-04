@@ -10,7 +10,7 @@
     <img class="account-img" src="{{ item.images }}">
     <div class="media-body">
       <h2 class="account-heading">{{item.anime}}</h2>
-       <button class="btn btn-primary synopsis-content" data-toggle="collapse" data-target="#demo{{ forloop.counter0 }} ">Summary</button>
+       <button class="btn btn-light synopsis-content" data-toggle="collapse" data-target="#demo{{ forloop.counter0 }} ">i class="fas fa-align-justify"></i></button>
        <br><br>
         <div id="demo{{ forloop.counter0 }} " class="collapse">
         {{ item.synopsis}}
@@ -32,7 +32,7 @@
 <div class="content-section">
     <form id="searchform" action="{% url 'results' %}" method="get" accept-charset="utf-8">
       <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control"  placeholder="Search" >
+                    <input type="text" class="form-control"  placeholder="Search" name = 'q'>
                         <button type="submit">
                             <i class="fas fa-search"></i>
                         </button>
