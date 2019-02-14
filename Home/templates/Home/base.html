@@ -11,9 +11,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href= "{% static 'Home/main.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet"> 
 
     <!-- Code for Navigation Bar-->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar fixed-top navbar-expand-sm bg-danger navbar-dark">
 
     <div class="container">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -22,26 +25,26 @@
 
     <!--Links-->
     <a class="navbar-brand" href="{% url 'Homepage' %}">
-                <img src="https://scontent.fybz2-2.fna.fbcdn.net/v/t1.0-9/29063303_919284848240948_5094910057301147648_n.jpg?_nc_cat=102&_nc_ht=scontent.fybz2-2.fna&oh=6550885bbc80b96659f0dd0fe24de242&oe=5CCA8171" alt="Nishino Nanase" style="width:40px;">
+        QUEEN'S ANIME CLUB
     </a>
 
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="collapsibleNavbar">
 
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ml-auto flex-nowrap">
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">About</a>
+            <a class="nav-link" href="{% url 'about' %}" style="color:white">About</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'events' %}">Events</a>
+            <a class="nav-link" href="{% url 'events' %}" style="color:white">Events</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'animelist' %}">Anime List</a>
+            <a class="nav-link" href="{% url 'animelist' %}" style="color:white">Anime List</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+            <a class="nav-link" href="{% url 'contact' %}" style="color:white">Contact Us</a>
         </li>
     </ul>
-
+<!--
     {% if user.is_authenticated %}
     <ul class="navbar-nav">
         {% if user.is_staff %}
@@ -62,7 +65,7 @@
             <a class="nav-link" href="{% url 'register' %}">Register</a>
         </li>
     </ul>
-    {% endif %}
+    {% endif %}-->
     </div>
 </div>
     </nav>
@@ -87,14 +90,14 @@
 </main>
 <main role="main" class="container">
 <div class="row">
-<div class= "col-md-8">
+<div class= "col-md-12">
 {% block content%}
 {% endblock content%}
 </div>
+
+<!--
 <div class= "col-md-4 order-first order-md-last">
-{% block sidecontent %}
-{% endblock sidecontent %}
-</div>
+</div> -->
 
 </main>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

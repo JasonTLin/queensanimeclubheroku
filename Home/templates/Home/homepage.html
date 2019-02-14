@@ -1,10 +1,22 @@
 {% extends 'Home/base.html' %}
 {% block title%}
-<h3>Our Posts</h3>
 {% endblock title%}
 {% block content %}
+{% load static %}
+
+<div class="welcome-banner col-md-12 p-3 my-5">
+  <div class="textbox col-md-5 p-3 my-5">
+    <h1 style="font-size: 3rem;">WELCOME TO QAC<hr></h1>
+    <p class="lead font-weight-normal">We are the Queen's Anime Club, dedicated to anime, watching anime, laughing at anime, drawing anime, and generally having fun. New members are always welcome!</p>
+  </div>
+  <div class="image-container">
+    <img src="{% static "Home/welcome.png" %}" alt="welcome">
+  </div>
+</div>
+
+<h2> UPCOMING EVENTS </h2>
     {% for post in posts %}
-    <article class="media content-section">
+    <article class="media content-section col-md-4">
         <div class="media-body">
             <div class="article-metadata">
                 <a class="mr-2"> {{post.author}} </a>
@@ -39,7 +51,8 @@
 {% endif %}
 
 {% endblock content %}
-{% block sidecontent %}
+
+<!--
 <div class="content-section">
 <img class="rounded-circle account-img" src="https://scontent.fybz2-1.fna.fbcdn.net/v/t1.0-9/40998513_1057707094398722_7784290476361777152_n.png?_nc_cat=109&_nc_ht=scontent.fybz2-1.fna&oh=055261b734edc19f29f4daba849e1a80&oe=5CD69915" style="display:block; margin:auto">
 <br>
@@ -67,4 +80,4 @@
   <p text align="center">Activities Coordinator: <a href="https://www.facebook.com/profile.php?id=100011264621402">Iain Um</a></p>
   </div>
 </div>
-{% endblock sidecontent %}
+-->
